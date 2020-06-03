@@ -50,6 +50,8 @@ quad_image()
 
 print_gridX()
 {
+  # paper_width=$(echo "scale = 2; 17 / 2" | bc)
+
   count=`expr $1 / 8`
   if [ `expr $1 % 8` -eq 0 ]
   then
@@ -60,10 +62,25 @@ print_gridX()
   echo $count
 }
 
-# print_gridY()
-# {
+# printf %.10f\\n "$((10**9 * 20/7))e-9"
 
-# }
+# var=$(printf %.10f\\n "$((10**9 / 10))e-9")
+# var2=$(`expr $var / 10`)
+# echo $var2
+
+#  var5=$(echo "scale = 2; 17 / 2" | bc)
+
+print_gridY()
+{
+  count=`expr $1 / 11`
+  if [ `expr $1 % 11` -eq 0 ]
+  then
+    count=$count
+  else
+    count=`expr $count + 1`
+  fi
+  echo $count
+}
 
 clear
 
@@ -72,13 +89,14 @@ clear
 
 # quad_image $file_name
 
-printf "\n\nEnter height of sign surface in inches with decimals (ie 15.25): "
+printf "\n\nEnter height of sign surface in inches rounding down to the nearest inch: "
 read sign_height
 
-printf "\n\nEnter width of sign surface in inches with decimals (ie 12.5): "
+printf "\n\nEnter width of sign surface in inches rounding down to the nearest inch: "
 read sign_width
 
 echo $(print_gridX $sign_width)
+echo $(print_gridY $sign_width)
 
 # echo $(get_height $file_name)
 # echo $(get_width $file_name)
