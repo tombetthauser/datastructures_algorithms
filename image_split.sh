@@ -33,7 +33,17 @@ get_width()
 
 quad_image()
 {
-  ffmpeg -i $1 "copy_$1"
+  width=$(get_width $1)
+  height=$(get_height $1)
+  half_width=$width/2
+  half_height=$height/2
+  half_height
+  # ffmpeg -i $1 -filter:v "crop=out_w:out_h:x:y" "copy_$1"
+
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:0" "topleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:0" "topright_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:$half_height" "bottomleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:$half_height" "bottomright_$1"
 }
 
 clear
