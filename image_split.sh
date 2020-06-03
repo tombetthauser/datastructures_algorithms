@@ -31,6 +31,27 @@ get_width()
   echo ${ARR2[0]}
 }
 
+split_image()
+{
+  width=$(get_width $1)
+  height=$(get_height $1)
+
+  grid_width=$2
+  grid_height=$3
+
+  width_inc=$width/$grid_width
+  height_inc=$height/$grid_height
+
+  # ffmpeg -i $1 -filter:v "crop=out_w:out_h:x:y" "copy_$1"
+
+  mkdir print_files
+
+  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:0" "print_files/topleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:0" "print_files/topright_$1"
+  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:$height_inc" "print_files/bottomleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:$height_inc" "print_files/bottomright_$1"
+}
+
 quad_image()
 {
   width=$(get_width $1)
@@ -84,10 +105,8 @@ print_gridY()
 
 clear
 
-# printf "\n\nEnter image file in current folder to process (with file extension): "
-# read file_name
-
-# quad_image $file_name
+printf "\n\nEnter image file in current folder to process (with file extension): "
+read file_name
 
 printf "\n\nEnter height of sign surface in inches rounding down to the nearest inch: "
 read sign_height
@@ -95,8 +114,11 @@ read sign_height
 printf "\n\nEnter width of sign surface in inches rounding down to the nearest inch: "
 read sign_width
 
-echo $(print_gridX $sign_width)
-echo $(print_gridY $sign_width)
+grid_height=$(print_gridX $sign_width)
+grid_width=$(print_gridY $sign_width)
+
+# quad_image $file_name
+split_image $file_name $grid_width $grid_height
 
 # echo $(get_height $file_name)
 # echo $(get_width $file_name)
