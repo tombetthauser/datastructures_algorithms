@@ -4,9 +4,18 @@ class Node:
     self.isWord = isWord
 
 class Solution:
+def __init__(self):
+  self.trie = None
+
   def build(self, words):
-    # build a trie
-    pass
+    self.trie = Node({}, False)
+    for word in words:
+      current = self.trie
+      for char in word:
+        if not char in current.children:
+          current.children[char] = Node({}, False)
+        current = current.children[char]
+      current.isWord = True
 
   def autocomplete(self, prefix):
     return []
