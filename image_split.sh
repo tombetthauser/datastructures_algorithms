@@ -40,10 +40,12 @@ quad_image()
   half_height
   # ffmpeg -i $1 -filter:v "crop=out_w:out_h:x:y" "copy_$1"
 
-  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:0" "topleft_$1"
-  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:0" "topright_$1"
-  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:$half_height" "bottomleft_$1"
-  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:$half_height" "bottomright_$1"
+  mkdir print_files
+
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:0" "print_files/topleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:0" "print_files/topright_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:0:$half_height" "print_files/bottomleft_$1"
+  ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:$half_height" "print_files/bottomright_$1"
 }
 
 clear
