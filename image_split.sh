@@ -39,17 +39,45 @@ split_image()
   grid_width=$2
   grid_height=$3
 
+  x_breaks=`expr $2 - 1`
+  y_breaks=`expr $3 - 1`
+  
+  printf "\ngrid width: $grid_width\n"
+  printf "grid height: $grid_height\n"
+
   width_inc=$width/$grid_width
   height_inc=$height/$grid_height
 
   # ffmpeg -i $1 -filter:v "crop=out_w:out_h:x:y" "copy_$1"
 
-  mkdir print_files
+  # print_files="print_files"
 
-  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:0" "print_files/topleft_$1"
-  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:0" "print_files/topright_$1"
-  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:$height_inc" "print_files/bottomleft_$1"
-  ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:$height_inc" "print_files/bottomright_$1"
+  # if [ -f "$print_files" ]
+  # then
+  #   rm -rf print_files/
+  # fi
+  
+  # rm -rf print_files
+  mkdir print_files
+  
+  #iterate through grid_height
+  for x in $(seq 0 $x_breaks)
+  do 
+    for y in $(seq 0 $y_breaks)
+    do
+      y_coord=$y*$height_inc
+      x_coord=$x*$width_inc
+      ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$x_coord:$y_coord" "print_files/$y~$x~$1"
+    done
+  done
+
+    #iterate through grid_width
+
+  # ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:0" "print_files/topleft_$1"
+  # ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:0" "print_files/topright_$1"
+
+  # ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:0:$height_inc" "print_files/bottomleft_$1"
+  # ffmpeg -i $1 -filter:v "crop=$width_inc:$height_inc:$width_inc:$height_inc" "print_files/bottomright_$1"
 }
 
 quad_image()
