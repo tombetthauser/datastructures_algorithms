@@ -48,18 +48,37 @@ quad_image()
   ffmpeg -i $1 -filter:v "crop=$half_width:$half_height:$half_width:$half_height" "print_files/bottomright_$1"
 }
 
+print_gridX()
+{
+  count=`expr $1 / 8`
+  if [ `expr $1 % 8` -eq 0 ]
+  then
+    count=$count
+  else
+    count=`expr $count + 1`
+  fi
+  echo $count
+}
+
+# print_gridY()
+# {
+
+# }
+
 clear
 
-printf "\n\nEnter image file in current folder to process (with file extension): "
-read file_name
+# printf "\n\nEnter image file in current folder to process (with file extension): "
+# read file_name
 
-quad_image $file_name
+# quad_image $file_name
 
-# printf "\n\nEnter height of sign surface in inches with decimals (ie 15.25): "
-# read sign_height
+printf "\n\nEnter height of sign surface in inches with decimals (ie 15.25): "
+read sign_height
 
-# printf "\n\nEnter width of sign surface in inches with decimals (ie 12.5): "
-# read sign_width
+printf "\n\nEnter width of sign surface in inches with decimals (ie 12.5): "
+read sign_width
 
-echo $(get_height $file_name)
-echo $(get_width $file_name)
+echo $(print_gridX $sign_width)
+
+# echo $(get_height $file_name)
+# echo $(get_width $file_name)
