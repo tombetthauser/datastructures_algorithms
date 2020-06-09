@@ -304,4 +304,43 @@ x = (1,2,3)
 y = (4,5,6)
 z = x + y
 
-print(z)
+# print(z)
+
+
+
+# SETS
+
+a = {3,5,2,4,1}
+a.add(6)
+# print(a)
+
+# print(len(a))
+
+a.discard(1)
+# print(a)
+
+b = a.pop() # behaves as though the set was a reverse sorted list
+# print(a)
+# print(b)
+
+
+a = {3,1,2}
+b = {5,4,6}
+c = a.union(b)
+# print(c)
+
+
+a = {3,1,2}
+b = {5,4,6}
+a.update(b)
+# print(c)
+
+x = set([1,4,2,3,5])
+# print(type(x))
+# print(x)
+
+
+a = {1,2}
+b = {2,3}
+print(a.difference(b)) # just produces the difference from a --> {1}
+print(a.intersection(b))
