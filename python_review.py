@@ -160,5 +160,32 @@ b = 12E4
 # RANDOM NUMBERS
 
 import random
-print(random.randrange(1,5))
+# print(random.randrange(1,5))
 ## prints different numbers each time inclusively between 1-4
+
+
+
+# STRINGS
+
+x = "Cat Lover"
+
+# print(x[0:3])
+# print(x[-5:-1])
+# print(len(x))
+
+# print(x.upper())
+# print(x.lower())
+
+# print(x.replace("Lov", "Rubb"))
+# print(x) # still prints Cat Lover
+
+# print(x.split(" "))
+y = x.split(" ")
+y.reverse()
+# print(y)
+
+x = x.replace("Lov", "Rubb")
+y = x.split(" ")
+y.reverse()
+
+# print(" ".join(y))
