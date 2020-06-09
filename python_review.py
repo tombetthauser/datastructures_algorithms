@@ -342,5 +342,57 @@ x = set([1,4,2,3,5])
 
 a = {1,2}
 b = {2,3}
-print(a.difference(b)) # just produces the difference from a --> {1}
-print(a.intersection(b))
+# print(a.difference(b)) # just produces the difference from a --> {1}
+# print(a.intersection(b))
+
+
+
+
+# DICTIONARIES
+
+d = {"a": 1, "b":2}
+# print(d["a"])
+# print(d.get("b"))
+
+def foo(d):
+  for key in d:
+    print(key)
+    print(d[key]) # prints values
+
+def foo2(d):
+  for val in d.values():
+    print(val)
+
+def foo3(d):
+  for key, val in d.items():
+    print(f"{key}: {val}")
+
+# foo3(d)
+
+# if "a" in d:
+  # print(f"a:{d.get('a')}")
+
+# c = d.pop("a")
+# print(d)
+# print(c)
+
+d["c"] = 3
+# print(d)
+# d.popitem()
+del d["c"]
+# print(d)
+
+e = d.copy()
+
+d.clear()
+del d
+
+# print(e)
+
+d = dict(tom=100, erin=300, dan=500)
+# print(d.keys())
+# print(d.get("erin"))
+
+# print(d.setdefault("alex", 0))
+# print(d.setdefault("tom", 0))
+# print(d)
