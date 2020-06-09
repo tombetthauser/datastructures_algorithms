@@ -73,6 +73,19 @@ __foo__ = 'FOO' # Legal and less terrible but dont do it stupid
 # print() is a function
 # .time() is a method
 
+# MULTIPLE ASSIGNMENT
+# x = y = z = 'Joan Brown'
+
+# PARALLEL ASSIGNMENT
+# x, z = "Joan", "Brown"
+# (x, z) = ("Joan", "Brown")
+# [x, z] = ["Joan", "Brown"]
+
+# ADDING STRINGS
+# x = "cad"
+# y = "mium"
+# z = x + y
+
 
 
 # DIR() and HELP()
@@ -92,4 +105,60 @@ __foo__ = 'FOO' # Legal and less terrible but dont do it stupid
 
   help(str.strip)
   help(list.append)
-...
+'''
+
+
+
+
+
+# DATA TYPES
+
+# TEXT TYPES --> str
+# NUMERIC TYPES --> int, float, complex
+# SEQUENCE TYPES --> list, tuple, range
+# MAPPING TYPES --> dict
+# SET TYPES --> set, frozenset
+# BOOLEAN TYPES --> bool
+# BINARY TYPES --> bytes, bytearray, memoryview
+
+# x = 5
+# print(type(x))
+
+# for i in range(9):
+#   print(i)
+## prints 0,1,2,3,4,5,6,7,8
+
+# for i in range(5,9):
+#   print(i)
+## prints 5,6,7,8
+
+
+
+# SETTING DATA TYPES
+x = bool(0)
+y = bool(5120)
+
+z = list((1,2,3))
+z[2] = 1
+# print(z)
+
+a = {4,6,1,2}
+# print(a[0]) # ERROR
+# for i in a:
+#   print(i)
+## prints 1,2,4,6
+
+
+
+# FLOATING POINT NUMBERS
+
+b = 12E4
+# print(b == 120000 == 120000.0 == 1200E2 == 1200e2)
+
+
+
+# RANDOM NUMBERS
+
+import random
+print(random.randrange(1,5))
+## prints different numbers each time inclusively between 1-4
