@@ -237,3 +237,38 @@ y.reverse()
 
 
 # LISTS
+
+x = [1,2,3,4,5]
+y = len(x)
+# print(y)
+
+x.append("cat")
+# print(x)
+
+x.insert(5, "dog") # inserts "dog" into the new 5th index
+# print(x)
+
+x.remove(5)
+# print(x)
+
+del x[0]
+# print(x)
+
+# del x
+# print('x isnt here man')
+
+# print(x)
+# x.clear()
+# print(x)
+
+a = [1,2,3]
+# b = a.copy()
+
+import copy
+b = copy.copy(a)
+a = copy.deepcopy(b)
+
+b[2] = 1
+
+# print(a)
+# print(b)
