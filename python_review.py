@@ -285,4 +285,23 @@ x = [0,"cat",2,3]
 x.reverse()
 x.remove("cat")
 x.sort()
-print(x)
+# print(x)
+
+
+
+# TUPLES
+
+a = ("Ingres") # just a string 
+b = ("Ingres",) # 100% tuple
+
+# print(type(a))
+# print(type(b))
+
+del a # works!
+
+
+x = (1,2,3)
+y = (4,5,6)
+z = x + y
+
+print(z)
