@@ -189,3 +189,51 @@ y = x.split(" ")
 y.reverse()
 
 # print(" ".join(y))
+
+
+
+# STRING FORMATTING
+
+# x = "Tom"
+# print(f"Hello, {x}")
+
+
+
+# OPERATORS
+
+# print(True and True)
+# print(True and False)
+# print(False and False)
+
+# print(False or False)
+# print(False or True)
+# print(True or True)
+
+# print(True and False)
+# print(not(True and False))
+
+# print(5 is 5)
+# print("5" is "5")
+# print([5] is [5])
+# print([5] is not [5])
+# print(5 is not 5)
+
+# print(5 in [1,2,3,4,5])
+# print(5 not in [1,2,3,4,5])
+# print(10 not in [1,2,3,4,5])
+# print(10 in [1,2,3,4,5])
+# print(not(10 in [1,2,3,4,5]))
+# print(not(not(10 in [1,2,3,4,5])))
+
+
+
+
+# BITWISE OPERATORS
+
+# & | ^ ~ << >>
+# STAY AWAY :0
+
+
+
+
+# LISTS
