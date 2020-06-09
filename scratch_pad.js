@@ -20,17 +20,49 @@ p.then((message) => {
 
 switch(Math.round(Math.random() * 3)) {
   case 3:
-    console.log("Three!")
+    // console.log("Three!")
     break;
   case 2:
-    console.log("Two!")
+    // console.log("Two!")
     break;
   case 1:
-    console.log("One!")
+    // console.log("One!")
     break;
   default:
-    console.log("Zero!")
+    // console.log("Zero!")
 }
 
 
 
+// CLASSES AND FAT ARROW SCOPE
+
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+
+  printNameArrow() {
+    setTimeout(() => {
+      console.log(`Arrow Func Name: ${this.name}`)
+    }, 100)
+  }
+  
+  printNameFunction() {
+    setTimeout(function() {
+      console.log(`Regular Func Name: ${this.name}`)
+    })
+  }
+}
+
+let justArrowFunction = () => console.log(`Arrow This = ${this}`)
+
+function justAFunction() {
+  console.log(`Func This = ${this}`)
+}
+
+// justArrowFunction()
+// justAFunction()
+
+let person = new Person("Tim")
+person.printNameArrow()
+person.printNameFunction()
