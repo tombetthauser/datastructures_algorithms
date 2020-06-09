@@ -272,3 +272,17 @@ b[2] = 1
 
 # print(a)
 # print(b)
+
+
+a = [1,2,3]
+b = [4,5,6]
+a.extend(b)
+# print(a)
+
+x = [0,"cat",2,3]
+# print(x.index("cat"))
+
+x.reverse()
+x.remove("cat")
+x.sort()
+print(x)
